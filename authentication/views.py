@@ -45,7 +45,7 @@ class RegistrationView(generics.GenericAPIView):
         data = {'email_body': email_body, 'to_email': user.email,
                 'email_subject': 'verify your email'}
         Util.send_email(data)
-        return Response(user_data, status=status.HTTP_200_OK)
+        return Response(user_data, status=status.HTTP_201)
 
 
 class VerifyEmail(views.APIView):
