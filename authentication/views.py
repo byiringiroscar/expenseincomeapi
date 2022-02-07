@@ -45,7 +45,7 @@ class RegistrationView(generics.GenericAPIView):
         data = {'email_body': email_body, 'to_email': user.email,
                 'email_subject': 'verify your email'}
         Util.send_email(data)
-        return Response(user_data, status=status.HTTP_201_CREATED)
+        return Response(user_data, status=status.HTTP_200_OK)
 
 
 class VerifyEmail(views.APIView):
@@ -106,7 +106,7 @@ class RequestPasswordResetEmail(generics.GenericAPIView):
 
 
 class PasswordTokenCheckAPI(generics.GenericAPIView):
-    serializer_class = SetNewPasswordSerializer
+    # serializer_class = SetNewPasswordSerializer
 
     def get(self, request, uidb64, token):
         try:

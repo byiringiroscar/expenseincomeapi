@@ -10,7 +10,6 @@ from django.urls import reverse
 from .utilis import Util
 
 
-
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(max_length=16, min_length=6, write_only=True)
 
@@ -102,4 +101,3 @@ class SetNewPasswordSerializer(serializers.ModelSerializer):
         except Exception as e:
             raise AuthenticationFailed("The reset link is valid", 401)
         return super().validate(attrs)
-
